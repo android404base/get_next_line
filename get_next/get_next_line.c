@@ -6,7 +6,7 @@
 /*   By: ydag <ydag@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/20 15:00:30 by ydag           #+#    #+#                */
-/*   Updated: 2019/11/21 19:42:21 by ydag          ########   odam.nl         */
+/*   Updated: 2019/11/27 18:19:04 by ydag          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		get_next_line(int fd, char **line)
 	char			*heap;
 	int				check;
 
-	if ((fd < 0 || fd > MAX_FD) \
+	if (!line || (fd < 0 || fd > MAX_FD) || (read(fd, container[fd], 0) < 0) \
 		|| !(heap = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1)))
 		return (-1);
 	if (container[fd])
@@ -30,9 +30,11 @@ int		get_next_line(int fd, char **line)
 	{
 		if (!check && *line)
 			*line = NULL;
+		else if (check == 0)
+			*line = ft_strdup("");
 		return (check);
 	}
 	*line = container[fd];
 	container[fd] = NULL;
-	return (1);
+	return (0);
 }
