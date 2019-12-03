@@ -6,7 +6,7 @@
 /*   By: ydag <ydag@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/20 14:56:45 by ydag           #+#    #+#                */
-/*   Updated: 2019/11/27 18:21:39 by ydag          ########   odam.nl         */
+/*   Updated: 2019/12/03 12:39:32 by ydag          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ char	*bring_them_all(char const *s1, char const *s2)
 	while (*s2 != '\0')
 		*tmp_s3++ = *s2++;
 	*tmp_s3 = '\0';
+	free(tmp_s3);//son degisiklik
 	return (s3);
 }
 
@@ -71,6 +72,8 @@ int		check_line(char **container, char **line)
 	*tmp = '\0';
 	*line = ft_strdup(*container);
 	*container = ft_strdup(tmp + 1);
+	free(tmp); // son degisiklik
+	free(check_container);//son degisiklik
 	return (1);
 }
 
