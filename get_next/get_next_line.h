@@ -6,7 +6,7 @@
 /*   By: ydag <ydag@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/20 14:59:23 by ydag           #+#    #+#                */
-/*   Updated: 2019/11/21 19:45:30 by ydag          ########   odam.nl         */
+/*   Updated: 2019/12/04 18:14:48 by ydag          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ char	*ft_strdup(const char *s1);
 char	*bring_them_all(char const *s1, char const *s2);
 int		check_line(char **container, char **line);
 int		read_file(int fd, char *heap, char **container, char **line);
+int		safe_out(int check, char *heap);
 
 #endif
